@@ -1,4 +1,4 @@
-##In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data. 
+##In this SQL, I'm querying a database with multiple tables to quantify the statistics regarding customer and order data. 
 
 #1. How many orders were placed in January? 
 SELECT COUNT(orderID)
@@ -46,3 +46,9 @@ ON fs.orderid=cs.order_id
 WHERE fs.Quantity>2
 AND length(orderid) = 6
 AND orderid <> 'Order ID';
+
+#8 List all the products sold in Los Angeles in February, and include how many of each were sold.
+SELECT Product, SUM(Quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
